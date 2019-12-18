@@ -10,6 +10,7 @@
 #define __MONO_SIGNAL_HANDLER_H__
 
 #include "config.h"
+#include <glib.h>
 
 /*
  * When a signal is delivered to a thread on a Krait Android device
@@ -98,5 +99,8 @@ typedef struct {
 #define MONO_SIG_HANDLER_GET_SIGNO() (_dummy)
 #define MONO_SIG_HANDLER_GET_INFO() (_info)
 #define MONO_SIG_HANDLER_GET_CONTEXT void *ctx = context;
+
+void mono_load_signames (void);
+const char * mono_get_signame (int signo);
 
 #endif // __MONO_SIGNAL_HANDLER_H__
